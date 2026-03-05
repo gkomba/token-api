@@ -48,7 +48,13 @@ app.post('/validate', (req, res) => {
     }
 
     console.log('DECRYPTED:', decrypted);
-    return res.json({ valid: 1 });
+    const parts = decrypted.split('#');
+
+    const user = parts[1]; // "user"
+
+    console.log('USER:', user);
+    const valid = ["edalexan", "gkomba"];
+    return res.json({ valid: valid.includes(user) ? 1 : 0 });
 });
 
 // Inicia o servidor

@@ -1,0 +1,14 @@
+{
+  "name": "aes-api",
+  "version": "1.0.0",
+  "description": "API para validar tokens AES-ECB",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "SeuNome",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

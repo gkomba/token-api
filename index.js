@@ -505,6 +505,14 @@ zombunga
     return res.json({ valid: valid.includes(user) ? 1 : 0 });
 });
 
+// Trata erros de JSON inválido (ex: caracteres de controlo no body)
+app.use((err, req, res, next) => {
+    if (err.type === 'entity.parse.failed') {
+        return res.json({ valid: 0 });
+    }
+    next(err);
+});
+
 // Inicia o servidor
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
